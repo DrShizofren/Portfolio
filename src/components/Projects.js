@@ -14,13 +14,20 @@ const projects = [
     icon: '🍽️',
     title: 'AI Recipe Finder',
     desc: 'Web app that generates personalised recipes via API scraping and AI-driven suggestions. Dynamic content and smart recommendation engine.',
-    tech: ['React', 'API Integration', 'AI'],
+    tech: ['HTML', 'CSS', 'JavaScript'],
   },
   {
     icon: '📚',
     title: 'IELTS Training Platform',
     desc: 'Digitalised IELTS exam tests for online practice — full content management, timed exercises, and score tracking system.',
-    tech: ['JavaScript', 'HTML/CSS', 'Score Tracking'],
+    tech: ['Next.js', 'React', 'Score Tracking'],
+  },
+  {
+    icon: '🏢',
+    title: 'HR Management Admin Panel',
+    desc: 'Admin dashboard built for a human resource management company during a hackathon — employee management, department overviews, and data-driven HR workflows. The project took gold.',
+    tech: ['React', 'Admin Dashboard', 'Hackathon'],
+    badge: 'Hackathon',
   },
   {
     icon: '🎲',
@@ -30,7 +37,7 @@ const projects = [
   },
 ];
 
-const delays = ['d1', 'd2', 'd3', 'd4'];
+const delays = ['d1', 'd2', 'd3', 'd4', 'd5'];
 
 export default function Projects() {
   return (

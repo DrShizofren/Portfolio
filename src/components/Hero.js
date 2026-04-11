@@ -70,7 +70,6 @@ export default function Hero() {
         </div>
 
         <div className="hero-scroll">
-          <span className="hero-scroll-text">Scroll</span>
           <div className="scroll-line" />
         </div>
       </div>

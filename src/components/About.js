@@ -79,8 +79,8 @@ export default function About() {
             <div className="big-card">
               <p className="section-label" style={{ marginBottom: '.8rem' }}>// languages</p>
               <div className="lang-grid">
-                <span className="lang-tag native">Azerbaijani — Native</span>
-                <span className="lang-tag">English — Fluent</span>
+                <span className="lang-tag">Azerbaijani — Native</span>
+                <span className="lang-tag native">English — Fluent</span>
                 <span className="lang-tag">Russian — Fluent</span>
                 <span className="lang-tag">Turkish — Fluent</span>
               </div>
