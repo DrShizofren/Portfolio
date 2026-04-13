@@ -13,7 +13,7 @@ const categories = [
     color: 'cyan',
     tags: [
       { label: 'Hooks' }, { label: 'Context API' }, { label: 'Redux' },
-      { label: 'Responsive Design' }, { label: 'API Integration' },
+      { label: 'React Native' }, { label: 'Responsive Design' }, { label: 'API Integration' },
     ],
   },
   {
@@ -21,15 +21,15 @@ const categories = [
     title: 'Automation & Tools',
     color: 'pink',
     tags: [
-      { label: 'Make.com' }, { label: 'CRM Customization' }, { label: 'Lovable' },
-      { label: 'Wix.com' }, { label: 'Git' }, { label: 'VS Code' },
+      { label: 'Make.com' }, { label: 'CRM Customization' }, { label: 'CRM Integration' }, { label: 'Lovable' },
+      { label: 'Wix.com' }, { label: 'Git' }, { label: 'GitHub' }, { label: 'GitLab' }, { label: 'VS Code' }, { label: 'Chrome Extensions' },
     ],
   },
   {
     icon: '🤖',
     title: 'AI & Other',
     tags: [
-      { label: 'All Modern AIs' }, { label: 'Python' },
+      { label: 'All Modern AIs' }, { label: 'Prompt Engineering' }, { label: 'Python' },
       { label: 'Game Dev' }, { label: 'Data Science' },
     ],
   },
