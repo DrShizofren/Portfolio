@@ -22,7 +22,7 @@ const categories = [
     color: 'pink',
     tags: [
       { label: 'Make.com' }, { label: 'CRM Customization' }, { label: 'CRM Integration' }, { label: 'Lovable' },
-      { label: 'Wix.com' }, { label: 'Git' }, { label: 'GitHub' }, { label: 'GitLab' }, { label: 'VS Code' }, { label: 'Chrome Extensions' },
+      { label: 'Wix.com' }, { label: 'Figma' }, { label: 'Git' }, { label: 'GitHub' }, { label: 'GitLab' }, { label: 'VS Code' }, { label: 'Chrome Extensions' },
     ],
   },
   {
