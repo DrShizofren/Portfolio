@@ -70,6 +70,13 @@ nav {
 }
 .nav-links a:hover { color: var(--text); }
 .nav-links a:hover::after { width: 100%; }
+.nav-links .nav-resume-btn {
+  color: var(--accent); border: 1px solid var(--accent);
+  padding: .35rem .9rem; border-radius: 6px;
+  transition: background .2s, color .2s;
+}
+.nav-links .nav-resume-btn:hover { background: var(--accent); color: #000; }
+.nav-links .nav-resume-btn::after { display: none; }
 
 /* ── SECTIONS ── */
 section { position: relative; z-index: 1; }

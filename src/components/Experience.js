@@ -31,6 +31,20 @@ export default function Experience() {
               {bullets.map((b) => <li key={b}>{b}</li>)}
             </ul>
           </div>
+          <div className="timeline-item reveal d2">
+            <div className="timeline-meta">
+              <span className="timeline-company">Summer Volunteer Opportunity</span>
+              <span className="timeline-date">Summer 2024</span>
+              <span className="timeline-location">Baku, Azerbaijan</span>
+            </div>
+            <div className="timeline-title">Volunteer</div>
+            <ul className="timeline-bullets">
+              <li>Ticket checking</li>
+              <li>Constant communication</li>
+              <li>Assisting with backstage logistics</li>
+              <li>Stewarding</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>

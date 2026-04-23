@@ -27,6 +27,7 @@ export default function Nav() {
           <li><a href="#projects">Projects</a></li>
           <li><a href="#awards">Awards</a></li>
           <li><a href="#contact">Contact</a></li>
+          <li><a href="/resume.pdf" download className="nav-resume-btn">Resume</a></li>
         </ul>
 
         {/* Hamburger */}
@@ -48,6 +49,7 @@ export default function Nav() {
           <li><a href="#projects" onClick={close}>Projects</a></li>
           <li><a href="#awards" onClick={close}>Awards</a></li>
           <li><a href="#contact" onClick={close}>Contact</a></li>
+          <li><a href="/resume.pdf" download onClick={close} className="nav-resume-btn">Resume</a></li>
         </ul>
       </div>
     </>

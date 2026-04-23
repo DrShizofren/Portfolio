@@ -51,7 +51,7 @@ export default function About() {
               design concepts in my spare time.
             </p>
             <p style={{ color: 'var(--muted)', lineHeight: 1.9 }}>
-              Previously graduated in Computer Science from Baku State University (GPA 3.0),
+              Previously graduated in Computer Science from Baku State University (GPA 3.5),
               with an IELTS score of 7.5.
             </p>
 
@@ -97,7 +97,7 @@ export default function About() {
               </div>
               <div>
                 <p style={{ fontWeight: 700, color: 'var(--text)', fontSize: '.9rem' }}>Baku State University</p>
-                <p style={{ color: 'var(--muted)', fontSize: '.82rem' }}>Computer Science B.Sc. — 2021–2025 · GPA 3.0</p>
+                <p style={{ color: 'var(--muted)', fontSize: '.82rem' }}>Computer Science B.Sc. — 2021–2025 · GPA 3.5</p>
               </div>
 
               <br />
