@@ -33,6 +33,21 @@ export default function Experience() {
           </div>
           <div className="timeline-item reveal d2">
             <div className="timeline-meta">
+              <span className="timeline-company">Best Comp Group</span>
+              <span className="timeline-date">January 2025 — June 2025</span>
+              <span className="timeline-location">Baku, Azerbaijan</span>
+            </div>
+            <div className="timeline-title">IT Support Technician</div>
+            <ul className="timeline-bullets">
+              <li>Upgrading or changing RAM and storage on computers</li>
+              <li>Repair of basic broken computers</li>
+              <li>Assembling PC parts</li>
+              <li>Maintenance of Computers</li>
+              <li>Installing basic software</li>
+            </ul>
+          </div>
+          <div className="timeline-item reveal d3">
+            <div className="timeline-meta">
               <span className="timeline-company">Summer Volunteer Opportunity</span>
               <span className="timeline-date">Summer 2024</span>
               <span className="timeline-location">Baku, Azerbaijan</span>

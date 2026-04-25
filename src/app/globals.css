@@ -294,6 +294,10 @@ section { position: relative; z-index: 1; }
 .skill-tag.cyan { color: var(--accent); border-color: rgba(230,57,70,.35); background: rgba(230,57,70,.04); }
 .skill-tag.cyan:hover { background: var(--accent); color: var(--white); border-color: var(--accent); }
 .skill-tag.pink { background: var(--bg); color: var(--text); border-color: var(--border-soft); }
+.skill-category.amber::before { background: #c47a1e; }
+.skill-category.amber:hover { box-shadow: 4px 4px 0 #c47a1e; }
+.skill-tag.amber { color: #c47a1e; border-color: rgba(196,122,30,.35); background: rgba(196,122,30,.04); }
+.skill-tag.amber:hover { background: #c47a1e; color: var(--white); border-color: #c47a1e; }
 
 /* ── EXPERIENCE ── */
 #experience { padding: 8rem 2rem; }
