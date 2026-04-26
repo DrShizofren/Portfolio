@@ -1,6 +1,6 @@
 const bullets = [
   'Building and maintaining CRM interfaces and custom automations',
-  'Developing high-converting landing pages using React, Next.js, Lovable, and Wix.com',
+  'Developing high-converting landing pages using React, Next.js, Lovable, Wix.com, WordPress, and GoHighLevel Page Builder',
   'Automating workflows with Make.com (Integromat)',
   'Primary project: ApexSales CRM — full UI at callapp.apexsales.ai',
   'Built base UIs for closersregion.com and caspiansol.com',
