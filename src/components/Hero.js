@@ -4,10 +4,11 @@ import { useEffect, useRef } from 'react';
 
 const phrases = [
   'Front-End Developer',
+  'Web Designer',
+  'UI/UX Designer',
   'AI Integration Specialist',
   'Data Science Student',
   'React / Next.js Expert',
-  'UI/UX Enthusiast',
 ];
 
 export default function Hero() {

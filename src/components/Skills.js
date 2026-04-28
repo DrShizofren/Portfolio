@@ -22,7 +22,7 @@ const categories = [
     color: 'pink',
     tags: [
       { label: 'Make.com' }, { label: 'CRM Customization' }, { label: 'CRM Integration' }, { label: 'Lovable' },
-      { label: 'Wix.com' }, { label: 'WordPress' }, { label: 'GoHighLevel' }, { label: 'Figma' }, { label: 'Git' }, { label: 'GitHub' }, { label: 'GitLab' }, { label: 'VS Code' }, { label: 'Chrome Extensions' },
+      { label: 'Wix.com' }, { label: 'WordPress' }, { label: 'GoHighLevel' }, { label: 'Figma' }, { label: 'Git' }, { label: 'GitHub' }, { label: 'GitLab' }, { label: 'VS Code' }, { label: 'JSON' }, { label: 'Chrome Extensions' },
     ],
   },
   {
@@ -38,11 +38,9 @@ const categories = [
     title: 'Hardware & IT Support',
     color: 'amber',
     tags: [
-      { label: 'Hardware Troubleshooting' }, { label: 'Diagnostics' },
       { label: 'RAM & Storage Upgrades' }, { label: 'PC Assembly' },
-      { label: 'Computer Repair' }, { label: 'Preventive Maintenance' },
-      { label: 'Windows' }, { label: 'Linux Basics' },
-      { label: 'OS Installation' }, { label: 'Software Configuration' },
+      { label: 'Computer Repair' }, { label: 'Computer Maintenance' },
+      { label: 'OS Installation (Windows/Linux)' }, { label: 'Software Configuration' },
     ],
   },
 ];

@@ -1,5 +1,9 @@
 'use client';
 
+import { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
+import Image from 'next/image';
+
 const projects = [
   {
     icon: '🚀',
@@ -9,18 +13,40 @@ const projects = [
     link: 'https://callapp.apexsales.ai',
     featured: true,
     badge: 'Featured · Professional',
+    images: [
+      '/projects/callapp1.png',
+      '/projects/callapp2.png',
+      '/projects/callapp3.png',
+      '/projects/callapp4.png',
+      '/projects/callapp5.png',
+      '/projects/callapp6.png',
+    ],
   },
   {
     icon: '🍽️',
     title: 'AI Recipe Finder',
     desc: 'Web app that generates personalised recipes via API scraping and AI-driven suggestions. Dynamic content and smart recommendation engine.',
-    tech: ['HTML', 'CSS', 'JavaScript'],
+    tech: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Redux', 'API Integration', 'Cohere AI'],
+    images: [
+      '/projects/recipeFinder1.png',
+      '/projects/recipeFinder2.png',
+      '/projects/recipeFinder3.png',
+      '/projects/recipeFinder4.png',
+      '/projects/recipeFinder5.png',
+      '/projects/recipeFinder6.png',
+    ],
   },
   {
     icon: '📚',
     title: 'IELTS Training Platform',
     desc: 'Digitalised IELTS exam tests for online practice — full content management, timed exercises, and score tracking system.',
     tech: ['Next.js', 'React', 'Score Tracking'],
+    images: [
+      '/projects/ietls1.png',
+      '/projects/ietls2.png',
+      '/projects/ietls3.png',
+      '/projects/ietls4.png',
+    ],
   },
   {
     icon: '🏢',
@@ -39,6 +65,115 @@ const projects = [
 
 const delays = ['d1', 'd2', 'd3', 'd4', 'd5'];
 
+function Lightbox({ images, idx, onClose, onPrev, onNext }) {
+  return createPortal(
+    <div
+      onClick={onClose}
+      style={{
+        position: 'fixed', inset: 0, zIndex: 1000,
+        background: 'rgba(0,0,0,0.75)',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
+      }}
+    >
+      {/* X button fixed to top-right of the overlay */}
+      <button
+        onClick={onClose}
+        style={{
+          position: 'fixed', top: 20, right: 24, zIndex: 1001,
+          background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.25)',
+          color: '#fff', fontSize: 18, width: 40, height: 40,
+          borderRadius: '50%', cursor: 'pointer', padding: 0,
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+        }}
+      >✕</button>
+
+      <div onClick={(e) => e.stopPropagation()} style={{ position: 'relative', width: '75vw', height: '75vh' }}>
+        <Image
+          src={images[idx]}
+          alt={`screenshot ${idx + 1}`}
+          fill
+          style={{ objectFit: 'contain' }}
+          sizes="75vw"
+        />
+        <button onClick={onPrev} style={arrowStyle('left', true)}>‹</button>
+        <button onClick={onNext} style={arrowStyle('right', true)}>›</button>
+        <div style={{ position: 'absolute', bottom: -28, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: 6 }}>
+          {images.map((_, i) => (
+            <span key={i} style={{ width: 7, height: 7, borderRadius: '50%', background: i === idx ? '#fff' : 'rgba(255,255,255,0.35)', display: 'block' }} />
+          ))}
+        </div>
+      </div>
+    </div>,
+    document.body
+  );
+}
+
+function ImageCarousel({ images }) {
+  const [idx, setIdx] = useState(0);
+  const [open, setOpen] = useState(false);
+
+  const prev = (e) => { e.stopPropagation(); setIdx((idx - 1 + images.length) % images.length); };
+  const next = (e) => { e.stopPropagation(); setIdx((idx + 1) % images.length); };
+
+  return (
+    <>
+      <div
+        onClick={() => setOpen(true)}
+        style={{ position: 'relative', width: '100%', aspectRatio: '16/9', overflow: 'hidden', marginBottom: '1rem', cursor: 'zoom-in' }}
+      >
+        <Image
+          src={images[idx]}
+          alt={`screenshot ${idx + 1}`}
+          fill
+          style={{ objectFit: 'cover' }}
+          sizes="(max-width: 768px) 100vw, 50vw"
+        />
+        <button onClick={prev} style={arrowStyle('left')}>‹</button>
+        <button onClick={next} style={arrowStyle('right')}>›</button>
+        <div style={{ position: 'absolute', bottom: 6, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: 4 }}>
+          {images.map((_, i) => (
+            <span
+              key={i}
+              onClick={(e) => { e.stopPropagation(); setIdx(i); }}
+              style={{ width: 6, height: 6, borderRadius: '50%', background: i === idx ? '#fff' : 'rgba(255,255,255,0.4)', cursor: 'pointer', display: 'block' }}
+            />
+          ))}
+        </div>
+      </div>
+      {open && (
+        <Lightbox
+          images={images}
+          idx={idx}
+          onClose={() => setOpen(false)}
+          onPrev={() => setIdx((idx - 1 + images.length) % images.length)}
+          onNext={() => setIdx((idx + 1) % images.length)}
+        />
+      )}
+    </>
+  );
+}
+
+function arrowStyle(side, large = false) {
+  return {
+    position: 'absolute',
+    top: '50%',
+    [side]: large ? 16 : 8,
+    transform: 'translateY(-50%)',
+    background: 'rgba(0,0,0,0.5)',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '50%',
+    width: large ? 44 : 28,
+    height: large ? 44 : 28,
+    fontSize: large ? 28 : 18,
+    lineHeight: large ? '44px' : '28px',
+    textAlign: 'center',
+    cursor: 'pointer',
+    padding: 0,
+    zIndex: 2,
+  };
+}
+
 export default function Projects() {
   return (
     <section id="projects">
@@ -56,15 +191,31 @@ export default function Projects() {
               key={p.title}
               className={`project-card reveal ${delays[i]}${p.featured ? ' featured' : ''}`}
             >
-              <div className="project-card-top">
-                <div className="project-icon">{p.icon}</div>
-                {p.link && (
-                  <a href={p.link} target="_blank" rel="noopener noreferrer" className="project-link" title="Live">↗</a>
-                )}
-              </div>
+              {p.images ? (
+                <ImageCarousel images={p.images} />
+              ) : (
+                <div className="project-card-top">
+                  <div className="project-icon">{p.icon}</div>
+                  {p.link && (
+                    <a href={p.link} target="_blank" rel="noopener noreferrer" className="project-link" title="Live">↗</a>
+                  )}
+                </div>
+              )}
               <div className="project-card-body">
                 {p.badge && <div className="featured-badge">{p.badge}</div>}
-                <div className="project-title">{p.title}</div>
+                <div className="project-title">
+                  {p.images ? `${p.icon} ${p.title}` : p.title}
+                  {p.images && p.link && (
+                    <a
+                      href={p.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="project-link"
+                      title="Live"
+                      style={{ marginLeft: 8 }}
+                    >↗</a>
+                  )}
+                </div>
                 <p className="project-desc">{p.desc}</p>
                 <div className="project-tech">
                   {p.tech.map((t) => <span key={t} className="project-tech-tag">{t}</span>)}
