@@ -39,7 +39,10 @@ export default function Hero() {
   return (
     <section id="hero">
       <div className="hero-inner">
-        <div className="hero-bg-num">AJ</div>
+        <div className="hero-bg-num">
+          AJ
+          <span className="hero-bg-star" aria-hidden="true">★</span>
+        </div>
 
         <p className="hero-eyebrow">Available for opportunities</p>
 
@@ -61,7 +64,6 @@ export default function Hero() {
             <div className="hero-buttons">
               <a href="#projects" className="btn btn-primary">View My Work</a>
               <a href="#contact" className="btn btn-outline">Get In Touch</a>
-              <a href="/resume.pdf" download className="btn btn-outline">Download CV</a>
             </div>
           </div>
 

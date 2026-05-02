@@ -33,19 +33,9 @@ const categories = [
       { label: 'Game Dev' }, { label: 'Data Science' },
     ],
   },
-  {
-    icon: '🔧',
-    title: 'Hardware & IT Support',
-    color: 'amber',
-    tags: [
-      { label: 'RAM & Storage Upgrades' }, { label: 'PC Assembly' },
-      { label: 'Computer Repair' }, { label: 'Computer Maintenance' },
-      { label: 'OS Installation (Windows/Linux)' }, { label: 'Software Configuration' },
-    ],
-  },
 ];
 
-const delays = ['d1', 'd2', 'd3', 'd4', 'd5'];
+const delays = ['d1', 'd2', 'd3', 'd4'];
 
 export default function Skills() {
   return (
