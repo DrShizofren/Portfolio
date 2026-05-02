@@ -52,7 +52,7 @@ export default function About() {
             </p>
             <p style={{ color: 'var(--muted)', lineHeight: 1.9 }}>
               Previously graduated in Computer Science from Baku State University (overall GPA 3.0,
-              achieving a perfect 4.0/4.0 in the final year), with an IELTS score of 7.5.
+              achieving a perfect 4.0/4.0 in the final year), with an IELTS score of 7.
             </p>
 
             <div className="about-stats">

@@ -4,7 +4,7 @@ const awards = [
   { icon: '📜', title: 'Code Academy — Software Developer', sub: 'Diploma · 2025' },
   { icon: '📜', title: 'Jet Academy — Front-End Developer', sub: 'Diploma · 2023' },
   { icon: '📜', title: 'Certiport — HTML & CSS Specialist', sub: 'Diploma · 2025' },
-  { icon: '🌐', title: 'IELTS 7.5', sub: 'English proficiency — C1 level' },
+  { icon: '🌐', title: 'IELTS 7', sub: 'English proficiency — C1 level' },
   { icon: '🎓', title: 'Class President — 2 Years', sub: 'University leadership · Consecutive years' },
   { icon: '🏅', title: "5th — National Quiz 'Xemse'", sub: 'High school national competition' },
 ];
