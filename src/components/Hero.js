@@ -39,10 +39,7 @@ export default function Hero() {
   return (
     <section id="hero">
       <div className="hero-inner">
-        <div className="hero-bg-num">
-          AJ
-          <span className="hero-bg-star" aria-hidden="true">★</span>
-        </div>
+        <div className="hero-bg-num">AJ</div>
 
         <p className="hero-eyebrow">Available for opportunities</p>
 

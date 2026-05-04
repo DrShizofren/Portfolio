@@ -5,7 +5,6 @@ import { useState, useEffect } from 'react';
 export default function Nav() {
   const [open, setOpen] = useState(false);
 
-  // Close menu on scroll
   useEffect(() => {
     const handler = () => setOpen(false);
     window.addEventListener('scroll', handler, { passive: true });
