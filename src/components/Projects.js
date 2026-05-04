@@ -1,8 +1,25 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
+
+import callapp1 from '../../public/projects/callapp1.webp';
+import callapp2 from '../../public/projects/callapp2.webp';
+import callapp3 from '../../public/projects/callapp3.webp';
+import callapp4 from '../../public/projects/callapp4.webp';
+import callapp5 from '../../public/projects/callapp5.webp';
+import callapp6 from '../../public/projects/callapp6.webp';
+import recipeFinder1 from '../../public/projects/recipeFinder1.webp';
+import recipeFinder2 from '../../public/projects/recipeFinder2.webp';
+import recipeFinder3 from '../../public/projects/recipeFinder3.webp';
+import recipeFinder4 from '../../public/projects/recipeFinder4.webp';
+import recipeFinder5 from '../../public/projects/recipeFinder5.webp';
+import recipeFinder6 from '../../public/projects/recipeFinder6.webp';
+import ietls1 from '../../public/projects/ietls1.webp';
+import ietls2 from '../../public/projects/ietls2.webp';
+import ietls3 from '../../public/projects/ietls3.webp';
+import ietls4 from '../../public/projects/ietls4.webp';
 
 const projects = [
   {
@@ -13,40 +30,21 @@ const projects = [
     link: 'https://callapp.apexsales.ai',
     featured: true,
     badge: 'Featured · Professional',
-    images: [
-      '/projects/callapp1.jpeg',
-      '/projects/callapp2.jpeg',
-      '/projects/callapp3.jpeg',
-      '/projects/callapp4.jpeg',
-      '/projects/callapp5.jpeg',
-      '/projects/callapp6.jpeg',
-    ],
+    images: [callapp1, callapp2, callapp3, callapp4, callapp5, callapp6],
   },
   {
     icon: '🍽️',
     title: 'AI Recipe Finder',
     desc: 'Web app that generates personalised recipes via API scraping and AI-driven suggestions. Dynamic content and smart recommendation engine.',
     tech: ['HTML', 'CSS', 'JavaScript', 'TypeScript', 'Redux', 'API Integration', 'Cohere AI'],
-    images: [
-      '/projects/recipeFinder1.jpeg',
-      '/projects/recipeFinder2.jpeg',
-      '/projects/recipeFinder3.jpeg',
-      '/projects/recipeFinder4.jpeg',
-      '/projects/recipeFinder5.jpeg',
-      '/projects/recipeFinder6.jpeg',
-    ],
+    images: [recipeFinder1, recipeFinder2, recipeFinder3, recipeFinder4, recipeFinder5, recipeFinder6],
   },
   {
     icon: '📚',
     title: 'IELTS Training Platform',
     desc: 'Digitalised IELTS exam tests for online practice — full content management, timed exercises, and score tracking system.',
     tech: ['Next.js', 'React', 'Score Tracking'],
-    images: [
-      '/projects/ietls1.jpeg',
-      '/projects/ietls2.jpeg',
-      '/projects/ietls3.jpeg',
-      '/projects/ietls4.jpeg',
-    ],
+    images: [ietls1, ietls2, ietls3, ietls4],
   },
   {
     icon: '🏢',
@@ -75,7 +73,6 @@ function Lightbox({ images, idx, onClose, onPrev, onNext }) {
         display: 'flex', alignItems: 'center', justifyContent: 'center',
       }}
     >
-      {/* X button fixed to top-right of the overlay */}
       <button
         onClick={onClose}
         style={{
@@ -92,6 +89,7 @@ function Lightbox({ images, idx, onClose, onPrev, onNext }) {
           src={images[idx]}
           alt={`screenshot ${idx + 1}`}
           fill
+          placeholder="blur"
           style={{ objectFit: 'contain' }}
           sizes="75vw"
         />
@@ -108,12 +106,15 @@ function Lightbox({ images, idx, onClose, onPrev, onNext }) {
   );
 }
 
-function ImageCarousel({ images }) {
+function ImageCarousel({ images, eager }) {
   const [idx, setIdx] = useState(0);
   const [open, setOpen] = useState(false);
 
   const prev = (e) => { e.stopPropagation(); setIdx((idx - 1 + images.length) % images.length); };
   const next = (e) => { e.stopPropagation(); setIdx((idx + 1) % images.length); };
+
+  const nextIdx = (idx + 1) % images.length;
+  const prevIdx = (idx - 1 + images.length) % images.length;
 
   return (
     <>
@@ -125,9 +126,22 @@ function ImageCarousel({ images }) {
           src={images[idx]}
           alt={`screenshot ${idx + 1}`}
           fill
+          placeholder="blur"
+          preload={eager}
+          loading={eager ? 'eager' : 'lazy'}
+          fetchPriority={eager ? 'high' : 'auto'}
           style={{ objectFit: 'cover' }}
           sizes="(max-width: 768px) 100vw, 50vw"
         />
+        {/* Hidden neighbour prefetches so ‹ / › clicks feel instant */}
+        {images.length > 1 && (
+          <div aria-hidden style={{ position: 'absolute', width: 1, height: 1, opacity: 0, pointerEvents: 'none', overflow: 'hidden' }}>
+            <Image src={images[nextIdx]} alt="" width={1} height={1} sizes="1px" />
+            {prevIdx !== nextIdx && (
+              <Image src={images[prevIdx]} alt="" width={1} height={1} sizes="1px" />
+            )}
+          </div>
+        )}
         <button onClick={prev} style={arrowStyle('left')}>‹</button>
         <button onClick={next} style={arrowStyle('right')}>›</button>
         <div style={{ position: 'absolute', bottom: 6, left: '50%', transform: 'translateX(-50%)', display: 'flex', gap: 4 }}>
@@ -192,7 +206,7 @@ export default function Projects() {
               className={`project-card reveal ${delays[i]}${p.featured ? ' featured' : ''}`}
             >
               {p.images ? (
-                <ImageCarousel images={p.images} />
+                <ImageCarousel images={p.images} eager={i === 0} />
               ) : (
                 <div className="project-card-top">
                   <div className="project-icon">{p.icon}</div>
